@@ -53,6 +53,20 @@ class Node:
             return None
 
 
+    def breadth_search(self, value, q=[]):
+        if self._value == value:
+            return self
+        elif len(self._children) != 0 or len(q) != 0:
+            for i in range(len(self._children)):
+                q.append(self._children[i])
+            curr = q.pop(0)
+            node = curr.breadth_search(value, q)
+            if node != None and node.value == value:
+                return node
+        else:
+            return None
+
+
 
 
 # node1 = Node("root1")
