@@ -30,14 +30,19 @@ class Node:
 
     @parent.setter
     def parent(self, newNode):
-        if self._parent is not newNode:
-            # if self._parent:
-            #     self._parent.remove_child(newNode)
+        if self._parent is newNode:
+            return
 
-            self._parent = newNode
-            if newNode is not None:
-                newNode.add_child(self)
+        if self._parent is not None:
+            self._parent.remove_child(self)
+            
+        self._parent = newNode
+        if newNode is not None:
+            newNode.add_child(self)
         return
+
+    def depth_search(self, value):
+        if self._value == value
 
 
 node1 = Node("root1")
